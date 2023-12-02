@@ -29,7 +29,7 @@ Sonidos = SoundFile()
 
 
 movimientos = Tareas(ev3,MD,MI,MG,SD,SI,SC,wait,Stop,Sonidos,Color,DriveBase,time)
-#condiciones = Tareas(ev3,MD,MI,MG,SD,SI,SC,wait,Stop,Sonidos,Color,DriveBase,time)
+condiciones = Tareas(ev3,MD,MI,MG,SD,SI,SC,wait,Stop,Sonidos,Color,DriveBase,time)
 #contador = ContadorLineas()
 #seguidor = SeguidorLineas(ev3,MD,MI,MG,SD,SI,SC,wait,Stop,Sonidos,contador,2,time)
 
