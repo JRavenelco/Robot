@@ -64,13 +64,35 @@ class Tareas:
         else:
             self.colorcin = 0
 
+    
+        def detectar_Color_H(self):
+            if self.SC.read('COLOR') == 3 or self.SC.read('COLOR') == 4 :
+                self.ev3.speaker.play_file(self.sound.GREEN)
+                self.colorcin = 3
+            elif self.SC.read('COLOR') == self.Color.BLUE:
+                self.ev3.speaker.play_file(self.sound.BLUE)
+                self.colorcin = 1
+                self.stoped()
+                
+            elif self.SC.read('COLOR') == 5:
+                self.ev3.speaker.play_file(self.sound.YELLOW)
+                self.colorcin = 3
+                
+            elif self.SC.read('COLOR') == 8:
+                self.ev3.speaker.play_file(self.sound.RED)
+                self.colorcin = 8
+
+            else:
+                self.colorcin = 0
+
+
     def actualizar_Color(self):
         return self.colorcin
 
-    def agarrar_Aldeano(self, direccion="Subir"):
+    def agarrar_Aldeano(self, direccion="Subir",angulo=120,time_limit = 2):
         # Define el ángulo objetivo y el tiempo límite (en segundos)
-        angulo_objetivo = -120 if direccion == "Subir" else 120
-        tiempo_limite = 1  # por ejemplo, 2 segundos
+        angulo_objetivo = -angulo if direccion == "Subir" else angulo
+        tiempo_limite = time_limit  # por ejemplo, 2 segundos
 
         # Comienza a mover el motor
         self.MG.run_target(100, self.MG.angle() + angulo_objetivo, wait=False)
